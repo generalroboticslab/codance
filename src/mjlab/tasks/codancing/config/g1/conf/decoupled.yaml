@@ -1,0 +1,1038 @@
+# @package _global_
+# decoupled: the paper's decoupled policy. Upper body tracks the adapted reference
+# with the wrench-match rewards, lower body follows the partner's feet with AMP
+# style (window 2, coefficient 0.1), partner obs = pelvis + knees from the robot
+# pelvis with a 50-step history for the actor AND the critic, gait rewards,
+# clip-end chaining, the physical g1 proxy as the partner, rsi on, torso
+# center-of-mass and foot-friction randomization (base_com, foot_friction) plus
+# encoder-bias randomization, episode-reset spawn noise on.
+#   Robot-against-partner contact is a PENALTY, not a termination: the
+#   whole-robot sensor feeds rewards.robot_partner_contact, -25 per step of
+#   contact (x 0.02 s = -0.50, below the +0.43 ceiling of a perfect step:
+#   tracking terms at most 16.5 x 0.02 plus the 0.1 style bonus), ungated, from
+#   the first step, so a 0.5 s lean costs 12.5.
+#   The rsi reset mix: rsi.default_prob 0.5 starts half the resets from the
+#   default standing pose at phase 0 (what episode_reset: default writes), the
+#   other half at a uniform phase in the reference pose; start_prob, the
+#   fraction of resets forced to phase 0 in the reference pose, is 0.
+#   In what is MEASURED: four eval recipes. `default` and `chain` start every
+#   eval episode at frame 0 in the reference pose
+#   (motion_cursor/rsi_eval_refpose), `stand` and `chain_stand` from the
+#   default standing pose at frame 0 (motion_cursor/rsi_eval_stand); no spawn
+#   noise in any; no contact termination at eval.
+# Interpolations kept on purpose: `${body_sets.*}`, `${runner.algorithm.amp.*}`
+# in amp_feature, the critic's partner history and the force field's
+# `anchor_body`. `session` is the host process of ONE invocation, never frozen.
+# The whole run in one file: the base `run` config plus every setting inline,
+# the clip pool as a manifest path. Edit this file directly.
+#
+#   uv run python -m mjlab.scripts.run train --config src/mjlab/tasks/codancing/config/g1/conf/decoupled.yaml
+defaults:
+  - run
+  - _self_
+env:
+  _target_: mjlab.tasks.shared.wrapper.manager_based_rl_env.ManagerBasedRlEnvCfgWrapper
+  # 4 physics steps of 0.005 s per control step: 50 Hz policy.
+  decimation: 4
+  episode_length_s: 20.0
+  # One seed, stated once on the runner: the train path copies runner.seed
+  # (plus the rank) into the env at build; sweep with --override runner.seed=N.
+  seed: ${runner.seed}
+  scene:
+    _target_: mjlab.scene.SceneCfg
+    num_envs: 16384
+    memory: 100M
+    terrain:
+      _target_: mjlab.terrains.TerrainEntityCfg
+      terrain_type: plane
+    spec_fns: {}
+    entities:
+      robot:
+        _target_: mjlab.entity.EntityCfg
+        init_state:
+          _target_: hydra_zen.funcs.get_obj
+          path: mjlab.asset_zoo.robots.unitree_g1.g1_constants.KNEES_BENT_KEYFRAME
+        collisions:
+        - _target_: hydra_zen.funcs.get_obj
+          path: mjlab.asset_zoo.robots.unitree_g1.g1_constants.FULL_COLLISION
+        spec_fn:
+          _target_: hydra_zen.funcs.get_obj
+          path: mjlab.asset_zoo.robots.unitree_g1.g1_constants.get_spec
+        articulation:
+          _target_: hydra_zen.funcs.get_obj
+          path: mjlab.asset_zoo.robots.unitree_g1.g1_constants.G1_ARTICULATION
+      g1_human:
+        _target_: mjlab.entity.EntityCfg
+        init_state:
+          _target_: hydra_zen.funcs.get_obj
+          path: mjlab.asset_zoo.robots.unitree_g1.g1_constants.KNEES_BENT_KEYFRAME
+        collisions:
+        - _target_: mjlab.utils.spec_config.CollisionCfg
+          geom_names_expr:
+          - ^(pelvis|(left|right)_(hip|thigh|shin|linkage_brace|foot[1-7]))_collision$
+          contype: 0
+          conaffinity: 1
+          condim:
+            ^(left|right)_foot[1-7]_collision$: 3
+            .*_collision: 1
+          priority:
+            ^(left|right)_foot[1-7]_collision$: 1
+          friction:
+            ^(left|right)_foot[1-7]_collision$:
+            - 0.6
+        spec_fn:
+          _target_: hydra_zen.funcs.get_obj
+          path: mjlab.asset_zoo.robots.unitree_g1.g1_constants.get_spec
+        articulation: null
+  # Render camera for the train/eval recorders (resolution comes from the video
+  # overlay of each eval recipe).
+  viewer:
+    _target_: mjlab.viewer.ViewerConfig
+    origin_type:
+      _target_: hydra_zen.funcs.get_obj
+      path: mjlab.viewer.ViewerConfig.OriginType.ASSET_BODY
+    entity_name: robot
+    body_name: torso_link
+    distance: 4.0
+    elevation: -10.0
+    azimuth: 90.0
+  sim:
+    _target_: mjlab.sim.SimulationCfg
+    nconmax: 1000
+    njmax: 1000
+    nan_guard:
+      _target_: mjlab.utils.nan_guard.NanGuardCfg
+      enabled: true
+    mujoco:
+      _target_: mjlab.sim.MujocoCfg
+      timestep: 0.005
+      iterations: 10
+      ls_iterations: 20
+      jacobian: sparse
+  observations:
+    actor:
+      concatenate_terms: true
+      # Train-time observation noise on (the `play` overlay switches it off).
+      enable_corruption: true
+      # Every actor term states its own history; a group-level value would
+      # silently override every term.
+      history_length: null
+      terms:
+        base_ang_vel:
+          func: mjlab.tasks.codancing.mdp.builtin_sensor
+          params:
+            sensor_name: robot/imu_ang_vel
+          noise:
+            n_min: -0.2
+            n_max: 0.2
+          history_length: 5
+        joint_pos:
+          func: mjlab.tasks.codancing.mdp.joint_pos_rel
+          params:
+            # The actor reads the encoder-biased joint angles (the encoder_bias
+            # startup event under events); `biased: false` reads the
+            # true ones.
+            biased: true
+          noise:
+            n_min: -0.01
+            n_max: 0.01
+          history_length: 5
+        joint_vel:
+          func: mjlab.tasks.codancing.mdp.joint_vel_rel
+          noise:
+            n_min: -0.5
+            n_max: 0.5
+          history_length: 5
+        actions:
+          func: mjlab.tasks.codancing.mdp.last_action
+          history_length: 5
+        projected_gravity:
+          func: mjlab.envs.mdp.projected_gravity
+          noise:
+            n_min: -0.05
+            n_max: 0.05
+          history_length: 5
+        robot_ref_anchor_ori_b:
+          func: mjlab.tasks.codancing.mdp.robot_ref_anchor_ori_b
+          params:
+            command_name: codancing
+            ref_face: free
+          noise:
+            n_min: -0.05
+            n_max: 0.05
+          history_length: 5
+        robot_ref_joint_state:
+          func: mjlab.tasks.codancing.mdp.robot_ref_joint_state
+          params:
+            command_name: codancing
+            ref_face: free
+            # 2J wide: reference joint positions and velocities.
+            include_velocity: true
+            # null = all 29 joints; a body-set name narrows the vector.
+            body_set: null
+          history_length: 5
+        human_ref_pelvis_knees_pos_b:
+          func: mjlab.tasks.codancing.mdp.human_body_pos_b
+          params:
+            command_name: codancing
+            body_names: ${body_sets.human_pelvis_knees}
+            base_body_name: pelvis
+            # auto follows partner_mode: the motion file for the imagined
+            # partner, the g1_human entity in the g1 scene.
+            human_source: auto
+          noise:
+            n_min: -0.25
+            n_max: 0.25
+          # 1 s of partner motion at 50 Hz; the critic's partner term below
+          # references this value.
+          history_length: 50
+        desired_stiffness:
+          func: mjlab.tasks.codancing.mdp.desired_stiffness_log_multi
+          params:
+            command_name: codancing
+            # Pins for the observed log stiffness (global, or per side); null =
+            # read each slot's stiffness from the clip.
+            fixed_lin: null
+            fixed_rot: null
+            fixed_lin_left: null
+            fixed_rot_left: null
+            fixed_lin_right: null
+            fixed_rot_right: null
+          history_length: 5
+    critic:
+      concatenate_terms: true
+      # Privileged critic: no observation noise.
+      enable_corruption: false
+      # Every critic term states its own history (the actor's pattern): a
+      # group-level value would silently override every term. The partner term
+      # references the actor's field, so the critic sees the same 1 s of partner
+      # motion the policy acts on and the two can never drift apart.
+      history_length: null
+      terms:
+        base_lin_vel:
+          func: mjlab.tasks.codancing.mdp.builtin_sensor
+          params:
+            sensor_name: robot/imu_lin_vel
+          history_length: 5
+        base_ang_vel:
+          func: mjlab.tasks.codancing.mdp.builtin_sensor
+          params:
+            sensor_name: robot/imu_ang_vel
+          history_length: 5
+        joint_pos:
+          func: mjlab.tasks.codancing.mdp.joint_pos_rel
+          params:
+            # The privileged critic always reads the true joint angles.
+            biased: false
+          history_length: 5
+        joint_vel:
+          func: mjlab.tasks.codancing.mdp.joint_vel_rel
+          history_length: 5
+        actions:
+          func: mjlab.tasks.codancing.mdp.last_action
+          history_length: 5
+        projected_gravity:
+          func: mjlab.envs.mdp.projected_gravity
+          history_length: 5
+        robot_body_pos_b:
+          func: mjlab.tasks.codancing.mdp.robot_body_pos_b
+          params:
+            command_name: codancing
+            body_names: ${body_sets.beyondmimic_dense_tracked_whole_body}
+          history_length: 5
+        robot_body_ori_b:
+          func: mjlab.tasks.codancing.mdp.robot_body_ori_b
+          params:
+            command_name: codancing
+            body_names: ${body_sets.beyondmimic_dense_tracked_whole_body}
+          history_length: 5
+        robot_ref_anchor_pos_b:
+          func: mjlab.tasks.codancing.mdp.robot_ref_anchor_pos_b
+          params:
+            command_name: codancing
+            ref_face: served
+          history_length: 5
+        robot_ref_anchor_ori_b:
+          func: mjlab.tasks.codancing.mdp.robot_ref_anchor_ori_b
+          params:
+            command_name: codancing
+            ref_face: served
+          history_length: 5
+        robot_ref_joint_state:
+          func: mjlab.tasks.codancing.mdp.robot_ref_joint_state
+          params:
+            command_name: codancing
+            ref_face: served
+            # J wide: positions only. The served (adapted) reference is a static
+            # pose target whose velocities carry no information.
+            include_velocity: false
+            body_set: null
+          history_length: 5
+        robot_free_ref_anchor_pos_b:
+          func: mjlab.tasks.codancing.mdp.robot_ref_anchor_pos_b
+          params:
+            command_name: codancing
+            ref_face: free
+          history_length: 5
+        robot_free_ref_anchor_ori_b:
+          func: mjlab.tasks.codancing.mdp.robot_ref_anchor_ori_b
+          params:
+            command_name: codancing
+            ref_face: free
+          history_length: 5
+        robot_free_ref_joint_state:
+          func: mjlab.tasks.codancing.mdp.robot_ref_joint_state
+          params:
+            command_name: codancing
+            ref_face: free
+            include_velocity: true
+            body_set: null
+          history_length: 5
+        human_ref_pelvis_knees_pos_b:
+          func: mjlab.tasks.codancing.mdp.human_body_pos_b
+          params:
+            command_name: codancing
+            body_names: ${body_sets.human_pelvis_knees}
+            base_body_name: pelvis
+            human_source: auto
+          history_length: ${env.observations.actor.terms.human_ref_pelvis_knees_pos_b.history_length}
+        applied_wrench:
+          func: mjlab.tasks.codancing.mdp.compliance_applied_wrench_multi
+          params:
+            command_name: codancing
+          history_length: 5
+        desired_wrench:
+          func: mjlab.tasks.codancing.mdp.compliance_desired_wrench_multi
+          params:
+            command_name: codancing
+          history_length: 5
+        robot_stiffness:
+          func: mjlab.tasks.codancing.mdp.desired_stiffness_log_multi
+          params:
+            command_name: codancing
+            fixed_lin: null
+            fixed_rot: null
+            fixed_lin_left: null
+            fixed_rot_left: null
+            fixed_lin_right: null
+            fixed_rot_right: null
+          history_length: 5
+        forcefield_stiffness:
+          func: mjlab.tasks.codancing.mdp.forcefield_stiffness_log_multi
+          params:
+            command_name: codancing
+          history_length: 5
+    amp:
+      concatenate_terms: true
+      history_length: ${runner.algorithm.amp.num_frames}
+      flatten_history_dim: false
+      terms:
+        amp:
+          func: mjlab.tasks.codancing.mdp.amp_features_obs
+          params:
+            command_name: codancing
+    amp_group:
+      concatenate_terms: true
+      terms:
+        amp_group:
+          func: mjlab.tasks.codancing.mdp.amp_group_obs
+          params:
+            command_name: codancing
+  rewards:
+    action_rate_l2:
+      func: mjlab.tasks.codancing.mdp.action_rate_l2
+      weight: -0.1
+    joint_limit:
+      func: mjlab.tasks.codancing.mdp.joint_pos_limits
+      weight: -10.0
+      params:
+        asset_cfg:
+          _target_: mjlab.managers.scene_entity_config.SceneEntityCfg
+          _args_:
+          - robot
+          joint_names:
+          - .*
+    self_collisions:
+      func: mjlab.tasks.codancing.mdp.self_collision_cost
+      weight: -10.0
+      params:
+        sensor_name: self_collision
+        # Counts substeps whose contact force exceeds this only when the sensor
+        # keeps a force history; the self_collision sensor below keeps none
+        # (history_length 0), so the cost is the instantaneous contact count.
+        force_threshold: 10.0
+    # Any robot geom touching the physical partner costs -25 per step of contact
+    # (x 0.02 s = -0.50, more than the +0.43 a perfect step can earn: tracking
+    # terms at most 16.5 x 0.02 plus the 0.1 style bonus), from the first step.
+    robot_partner_contact:
+      func: mjlab.tasks.codancing.mdp.partner_contact_penalty
+      weight: -25.0
+      params:
+        sensor_name: robot_partner_contact
+    robot_relative_ref_upper_body_pos:
+      func: mjlab.tasks.codancing.mdp.robot_relative_ref_body_position_error_exp
+      weight: 1.0
+      params:
+        command_name: codancing
+        std: 0.3
+        body_names: ${body_sets.upper_body_arms}
+    robot_relative_ref_upper_body_ori:
+      func: mjlab.tasks.codancing.mdp.robot_relative_ref_body_orientation_error_exp
+      weight: 2.0
+      params:
+        command_name: codancing
+        std: 0.4
+        body_names: ${body_sets.upper_body_arms}
+    compliance_force_match:
+      func: mjlab.tasks.codancing.mdp.compliance_force_match_exp_multi
+      weight: 2.0
+      params:
+        command_name: codancing
+        std: 15.0
+        reduce: masked_mean
+    compliance_torque_match:
+      func: mjlab.tasks.codancing.mdp.compliance_torque_match_exp_multi
+      weight: 2.0
+      params:
+        command_name: codancing
+        std: 2.0
+        reduce: masked_mean
+    # Extra pose-match weight on the links the contact script forces;
+    # body_names null = exactly those links, read from the clip.
+    force_link_emphasis_pos:
+      func: mjlab.tasks.codancing.mdp.forced_link_pos_emphasis_exp
+      weight: 2.5
+      params:
+        command_name: codancing
+        std: 0.2
+        body_names: null
+    force_link_emphasis_ori:
+      func: mjlab.tasks.codancing.mdp.forced_link_ori_emphasis_exp
+      weight: 2.5
+      params:
+        command_name: codancing
+        std: 0.3
+        body_names: null
+    # Foot-follow targets. `offset_xy` is the manifest's `foot_follow_offset`
+    # (every clip in the pool carries [-0.5, 0.0]); run_exec wires that value
+    # over whatever the file says at build, so the file states the value that
+    # runs. A pool whose clips disagree fails at build. `track_z` adds the
+    # height error to the xy error (the robot foot follows the human foot's
+    # height, not only its ground offset).
+    robot_right_foot_front:
+      func: mjlab.tasks.codancing.mdp.robot_right_foot_in_front_of_human_left_foot_height_aligned_exp
+      weight: 2.0
+      params:
+        command_name: codancing
+        offset_xy:
+        - -0.5
+        - 0.0
+        std: 0.25
+        deadband: 0.05
+        track_z: true
+    robot_left_foot_front:
+      func: mjlab.tasks.codancing.mdp.robot_left_foot_in_front_of_human_right_foot_height_aligned_exp
+      weight: 2.0
+      params:
+        command_name: codancing
+        offset_xy:
+        - -0.5
+        - 0.0
+        std: 0.25
+        deadband: 0.05
+        track_z: true
+    joint_acc_l2:
+      func: mjlab.envs.mdp.joint_acc_l2
+      weight: -1.0e-05
+      params:
+        asset_cfg:
+          _target_: mjlab.managers.scene_entity_config.SceneEntityCfg
+          _args_:
+          - robot
+          joint_names:
+          - .*hip.*
+          - .*knee.*
+    air_time:
+      func: mjlab.tasks.velocity.mdp.feet_air_time
+      weight: 0.5
+      params:
+        sensor_name: feet_ground_contact
+        threshold_min: 0.2
+        threshold_max: 0.6
+        # The velocity task's gating by a velocity command is off here (there
+        # is no such command); the threshold is unused while the name is null.
+        command_name: null
+        command_threshold: 0.5
+  events:
+    base_com:
+      func: mjlab.envs.mdp.dr.body_ipos
+      mode: startup
+      params:
+        asset_cfg:
+          _target_: mjlab.managers.scene_entity_config.SceneEntityCfg
+          _args_:
+          - robot
+          body_names:
+          - torso_link
+        operation: add
+        ranges:
+          0:
+          - -0.025
+          - 0.025
+          1:
+          - -0.05
+          - 0.05
+          2:
+          - -0.05
+          - 0.05
+        distribution: uniform
+        # One draw per env and axis (foot_friction shares one draw per env).
+        shared_random: false
+    foot_friction:
+      func: mjlab.envs.mdp.dr.geom_friction
+      mode: startup
+      params:
+        asset_cfg:
+          _target_: mjlab.managers.scene_entity_config.SceneEntityCfg
+          _args_:
+          - robot
+          geom_names: ^(left|right)_foot[1-7]_collision$
+        operation: abs
+        ranges:
+        - 0.3
+        - 1.2
+        distribution: uniform
+        shared_random: true
+    # Encoder-bias randomization: one constant per-joint offset per env within
+    # 0.01 rad, drawn at startup, added to the joint angles the actor observes
+    # (`biased: true` on the actor's joint_pos) while the core subtracts the
+    # same bias from the commanded targets. The critic reads the true angles.
+    # The play overlay drops this term, so the eval recipes measure with a zero
+    # bias, where the biased reading is bit-identical to the clean one.
+    encoder_bias:
+      func: mjlab.envs.mdp.dr.encoder_bias
+      mode: startup
+      params:
+        bias_range: [-0.01, 0.01]
+    compliance_forcefield:
+      func: mjlab.tasks.codancing.mdp.apply_compliance_forcefield_multi
+      mode: step
+      params:
+        command_name: codancing
+        # null = the robot entity.
+        robot_cfg: null
+        force_scale: 1.0
+        force_response: reactive
+        reanchor_rotation: yaw
+        # Re-anchor body of the spring: the same body as the pose-match anchor
+        # (torso_link), so the force set point and the adapted tracking target
+        # share one yaw frame.
+        anchor_body: ${env.commands.codancing.pose_match_anchor_body_name}
+        reanchor_mode: rising_edge
+  terminations:
+    time_out:
+      func: mjlab.tasks.codancing.mdp.time_out
+      time_out: true
+    robot_anchor_pos_z_low:
+      func: mjlab.tasks.codancing.mdp.robot_anchor_pos_z_low
+      params:
+        command_name: codancing
+        threshold: 0.3
+    # Off: the clip end chains into the next clip (motion_cursor.clip_end).
+    motion_clip_end: null
+    robot_anchor_ori_deviation:
+      func: mjlab.tasks.codancing.mdp.robot_anchor_ori_deviation
+      params:
+        command_name: codancing
+        threshold: 1.2
+    robot_foot_far_from_human_foot:
+      func: mjlab.tasks.codancing.mdp.robot_foot_far_from_human_foot
+      params:
+        command_name: codancing
+        # Same manifest-wired offset as the foot-follow rewards.
+        offset_xy:
+        - -0.5
+        - 0.0
+        threshold: 1.2
+        human_source: auto
+  # No curriculum and no recorder terms.
+  curriculum: {}
+  recorders: {}
+  sensors:
+    self_collision:
+      _target_: mjlab.sensor.ContactSensorCfg
+      name: self_collision
+      primary:
+        _target_: mjlab.sensor.ContactMatch
+        mode: subtree
+        pattern: pelvis
+        entity: robot
+      secondary:
+        _target_: mjlab.sensor.ContactMatch
+        mode: subtree
+        pattern: pelvis
+        entity: robot
+      fields:
+      - found
+      reduce: none
+      num_slots: 1
+    left_hand_thigh_dist:
+      _target_: mjlab.tasks.codancing.config.sensors.GeomFromToSensorCfg
+      name: left_hand_thigh_dist
+      obj:
+        _target_: mjlab.sensor.ObjRef
+        type: geom
+        name: left_hand_collision
+        entity: robot
+      ref:
+        _target_: mjlab.sensor.ObjRef
+        type: geom
+        name: left_thigh_collision
+        entity: robot
+      cutoff: 1.0
+    right_hand_thigh_dist:
+      _target_: mjlab.tasks.codancing.config.sensors.GeomFromToSensorCfg
+      name: right_hand_thigh_dist
+      obj:
+        _target_: mjlab.sensor.ObjRef
+        type: geom
+        name: right_hand_collision
+        entity: robot
+      ref:
+        _target_: mjlab.sensor.ObjRef
+        type: geom
+        name: right_thigh_collision
+        entity: robot
+      cutoff: 1.0
+    # Any robot geom (the whole robot subtree) against the human's collision set
+    # (its lower body); read by rewards.robot_partner_contact.
+    robot_partner_contact:
+      _target_: mjlab.sensor.ContactSensorCfg
+      name: robot_partner_contact
+      primary:
+        _target_: mjlab.sensor.ContactMatch
+        mode: subtree
+        pattern: pelvis
+        entity: robot
+      secondary:
+        _target_: mjlab.sensor.ContactMatch
+        mode: subtree
+        pattern: pelvis
+        entity: g1_human
+      fields:
+      - found
+      reduce: maxforce
+      num_slots: 1
+    robot_right_hand_contact:
+      _target_: mjlab.sensor.ContactSensorCfg
+      name: robot_right_hand_contact
+      primary:
+        _target_: mjlab.sensor.ContactMatch
+        mode: geom
+        pattern: .*right_wrist.*
+        entity: robot
+      secondary:
+        _target_: mjlab.sensor.ContactMatch
+        mode: geom
+        pattern: .*left_wrist.*
+        entity: g1_human
+      fields:
+      - found
+      - force
+      - pos
+      reduce: maxforce
+      num_slots: 1
+      secondary_policy: any
+    robot_left_hand_contact:
+      _target_: mjlab.sensor.ContactSensorCfg
+      name: robot_left_hand_contact
+      primary:
+        _target_: mjlab.sensor.ContactMatch
+        mode: geom
+        pattern: .*left_wrist.*
+        entity: robot
+      secondary:
+        _target_: mjlab.sensor.ContactMatch
+        mode: geom
+        pattern: .*pelvis.*
+        entity: g1_human
+      fields:
+      - found
+      - force
+      - pos
+      reduce: maxforce
+      num_slots: 1
+      secondary_policy: any
+    feet_ground_contact:
+      _target_: mjlab.sensor.ContactSensorCfg
+      name: feet_ground_contact
+      primary:
+        _target_: mjlab.sensor.ContactMatch
+        mode: subtree
+        pattern: ^(left_ankle_roll_link|right_ankle_roll_link)$
+        entity: robot
+      secondary:
+        _target_: mjlab.sensor.ContactMatch
+        mode: body
+        pattern: terrain
+      fields:
+      - found
+      reduce: none
+      num_slots: 1
+      track_air_time: true
+  commands:
+    codancing:
+      _target_: mjlab.tasks.codancing.mdp.commands.CodancingComposedCommandCfg
+      debug_vis: true
+      robot_asset_name: robot
+      human_asset_name: g1_human
+      # Tracking metrics compare the served (adapted) reference with the live
+      # robot.
+      metric_compare:
+      - - served
+        - live
+      # The partner is the physical g1 proxy: the g1_human entity is driven by the
+      # human clips, its collisions restricted to the lower body, and any robot
+      # geom touching it is penalized (rewards.robot_partner_contact, -25 per
+      # step).
+      partner_mode: g1
+      active_clip_obs_mode: none
+      motion_cursor:
+        _target_: mjlab.tasks.codancing.motion.motion_cursor.MotionCursorCfg
+        # Which clip the cursor lands on at an episode reset and at a clip end:
+        # a random draw from the pool (weights from the manifest) each time.
+        source:
+          _target_: mjlab.tasks.codancing.motion.motion_cursor.ClipSourceCfg
+          episode_reset:
+            _target_: mjlab.tasks.codancing.motion.motion_cursor.ClipCursorSampleCfg
+            clip_selection: random
+            pin_clip: null
+          clip_end:
+            _target_: mjlab.tasks.codancing.motion.motion_cursor.ClipCursorSampleCfg
+            clip_selection: random
+            pin_clip: null
+        # Where the cursor starts at an episode reset: `rsi` = the three-way mix
+        # below (default standing pose at phase 0 / reference pose at phase 0 / a
+        # drawn phase); `default` = always the standing pose at phase 0;
+        # `keyframe` = the reference at frame 0.
+        episode_reset: rsi
+        # What happens when the clip runs out: chain into the next clip inside
+        # the episode (`terminate` truncates instead).
+        clip_end: chain
+        # Reference state initialization ON as a three-way mix per reset:
+        # default_prob 0.5 = half the resets start from the default standing pose
+        # at phase 0 (what episode_reset: default writes), start_prob 0 = none at
+        # phase 0 in the reference pose, the rest at a phase drawn from the
+        # uniform row (the force-event and failure rows at weight 0 are never
+        # sampled). All sampler keys are stated, so an override changes values
+        # and never inserts keys.
+        rsi:
+          _target_: mjlab.tasks.codancing.motion.motion_cursor.RsiCfg
+          start_prob: 0.0
+          default_prob: 0.5
+          sampler:
+            uniform: 1.0
+            force_event: 0.0
+            failure_binned: 0.0
+          kernel_lambda: 0.8
+          kernel_size: 5
+          ema_alpha: 0.001
+        # Episode-reset spawn noise, the values these policies trained with:
+        # applied on TRUE episode resets after the robot is placed at the human root
+        # plus the manifest placement_offset (x, y translations, yaw about the
+        # robot's own axis; no velocity kick, no joint noise).
+        root_pose_range:
+          x: [-0.15, 0.15]
+          y: [-0.15, 0.15]
+          yaw: [-0.3, 0.3]
+        # No velocity kick and no joint noise at reset.
+        root_velocity_range: {}
+        joint_position_range: [0.0, 0.0]
+      g1_human_pelvis_body_name: pelvis
+      g1_human_left_hand_body_name: left_wrist_yaw_link
+      g1_human_right_hand_body_name: right_wrist_yaw_link
+      g1_human_left_foot_body_name: left_ankle_roll_link
+      g1_human_right_foot_body_name: right_ankle_roll_link
+      body_sets: ${body_sets}
+      pose_match_anchor_body_name: torso_link
+      amp_feature:
+        _target_: mjlab.tasks.codancing.mdp.amp_features.AmpFeatureCfg
+        body_names: ${body_sets.amp_lower_body_with_torso}
+        anchor_body_name: pelvis
+        use_anchor: true
+        components:
+        - pos
+        - ori6d
+        num_frames: ${runner.algorithm.amp.num_frames}
+        allow_anchor_in_bodies: false
+        disc_mode: ${runner.algorithm.amp.disc_mode}
+        expert_exclude_adapted: false
+        # static = every listed body active on every frame (the only mode
+        # implemented; a partial body set is chosen through body_names).
+        mask_mode: static
+      metric_suites:
+      - robot_ref_tracking
+      metric_body_groups:
+      - torso
+      - upper_body
+      - lower_body
+      - whole_body
+      metric_reference_frame: both
+  actions:
+    joint_pos:
+      _target_: mjlab.envs.mdp.actions.JointPositionActionCfg
+      entity_name: robot
+      actuator_names:
+      - .*
+      scale:
+        _target_: hydra_zen.funcs.get_obj
+        path: mjlab.asset_zoo.robots.G1_ACTION_SCALE
+      use_default_offset: true
+  capture_terminal_observations: true
+experiment_stem: codance
+runner:
+  _target_: mjlab.rl.shared.config.RslRlAMPOnPolicyRunnerCfg
+  load:
+    session:
+      actor: true
+      critic: true
+      rnd: true
+      discriminator: false
+      disc_optimizer: false
+      optimizer: false
+      iteration: false
+    fork:
+      actor: true
+      critic: true
+      rnd: true
+      discriminator: true
+      disc_optimizer: false
+      optimizer: false
+      iteration: false
+  seed: 0
+  num_steps_per_env: 24
+  max_iterations: 50000
+  obs_groups:
+    actor:
+    - actor
+    critic:
+    - critic
+  save_interval: 100
+  run_name: decoupled
+  logger: wandb
+  wandb_project: codancing
+  wandb_tags:
+  - codance
+  - decoupled
+  resume: false
+  load_run: .*
+  load_checkpoint: model_.*.pt
+  clip_actions: null
+  upload_model: false
+  class_name: AMPOnPolicyRunner
+  actor:
+    _target_: mjlab.rl.config.RslRlModelCfg
+    hidden_dims:
+    - 512
+    - 256
+    - 128
+    activation: elu
+    obs_normalization: true
+    cnn_cfg: null
+    distribution_cfg:
+      class_name: GaussianDistribution
+      init_std: 1.0
+      std_type: scalar
+    rnn_type: null
+    rnn_hidden_dim: 256
+    rnn_num_layers: 1
+    class_name: MLPModel
+  critic:
+    _target_: mjlab.rl.config.RslRlModelCfg
+    hidden_dims:
+    - 512
+    - 256
+    - 128
+    activation: elu
+    obs_normalization: true
+    cnn_cfg: null
+    distribution_cfg: null
+    rnn_type: null
+    rnn_hidden_dim: 256
+    rnn_num_layers: 1
+    class_name: MLPModel
+  algorithm:
+    _target_: mjlab.rl.shared.config.RslRlAmpPpoAlgorithmCfg
+    num_learning_epochs: 5
+    num_mini_batches: 4
+    learning_rate: 0.001
+    schedule: adaptive
+    gamma: 0.99
+    lam: 0.95
+    entropy_coef: 0.005
+    desired_kl: 0.01
+    max_grad_norm: 1.0
+    value_loss_coef: 1.0
+    use_clipped_value_loss: true
+    clip_param: 0.2
+    normalize_advantage_per_mini_batch: false
+    optimizer: adam
+    share_cnn_encoders: false
+    class_name: rsl_rl.algorithms.amp_ppo:AMP_PPO
+    amp:
+      _target_: mjlab.rl.shared.config.RslRlAmpCfg
+      num_frames: 2
+      disc_mode: single
+      replay_buffer_size: 100000
+      grad_pen_lambda: 5.0
+      amp_use_separate_optimizer: true
+      interleaved_update: true
+      discriminator:
+        _target_: mjlab.rl.shared.config.RslRlAmpDiscriminatorCfg
+        hidden_layer_sizes:
+        - 256
+        - 256
+        amp_disc_reward_coef: 0.1
+        task_reward_lerp: 0.5
+        use_lerp: false
+        trunk_weight_decay: 0.001
+        head_weight_decay: 0.1
+        balanced_replay: false
+      disc_optimizer:
+        _target_: mjlab.rl.shared.config.RslRlAmpDiscOptimizerCfg
+        amp_disc_optimizer: adam
+        amp_disc_learning_rate: 0.001
+# The clip pool. The manifest path is frozen as a string (no copy into the run
+# dir), so a manifest is immutable: any change gets a new file name.
+motion:
+  motions: configs/clip_manifests/multilink_waltz_100ml_100zw_20260830_comz_small_002.yaml
+eval:
+  # Every recipe's eval tree is composed and frozen with the checkpoint, so
+  # `run eval --ckpt` reproduces each recipe offline.
+  # Overlay groups a recipe may compose; the eval tree is a measurement spec,
+  # so motion / runner / session-shaping groups are rejected.
+  allowed_overlay_groups:
+  - play
+  - video
+  - motion_cursor
+  # Recipes are flat and explicit: none inherits from another or from
+  # run.yaml's `default`, so each states every key.
+  recipes:
+    # One env, one clip (20 s at 50 Hz), 480p video, tracking metrics. Four
+    # recipes: `default` and `chain` start every eval episode at frame 0 in the
+    # REFERENCE pose (motion_cursor/rsi_eval_refpose), `stand` and
+    # `chain_stand` from the DEFAULT STANDING pose at frame 0
+    # (motion_cursor/rsi_eval_stand); no spawn noise in any (training: half the
+    # resets stand, half start at a uniform phase, with the noise). No contact
+    # termination at eval.
+    default:
+      overlays:
+      - play
+      - video/res_480p
+      - motion_cursor/rsi_eval_refpose
+      num_envs: 1
+      length_s: null
+      length_steps: 1000
+      video:
+        enabled: true
+      metric:
+        settle_steps: 0
+      debug_vis:
+        enabled: true
+        robot_ref_ghost: true
+        compliance_force_arrow: true
+      # Render-only: hide the lines of the hand-to-thigh distance sensors
+      # (left_hand_thigh_dist, right_hand_thigh_dist; the yellow lines) in the
+      # eval video; the sensors still measure. Frozen with the recipe so
+      # `run eval --ckpt` reproduces it.
+      viz:
+        scene:
+          show_sensor_lines: false
+    # As `default`, starting from the default standing pose at frame 0.
+    stand:
+      overlays:
+      - play
+      - video/res_480p
+      - motion_cursor/rsi_eval_stand
+      num_envs: 1
+      length_s: null
+      length_steps: 1000
+      video:
+        enabled: true
+      metric:
+        settle_steps: 0
+      debug_vis:
+        enabled: true
+        robot_ref_ghost: true
+        compliance_force_arrow: true
+      # Render-only: hide the lines of the hand-to-thigh distance sensors
+      # (left_hand_thigh_dist, right_hand_thigh_dist; the yellow lines) in the
+      # eval video; the sensors still measure. Frozen with the recipe so
+      # `run eval --ckpt` reproduces it.
+      viz:
+        scene:
+          show_sensor_lines: false
+    # One env over a clip switch (30 s), alternating clip ends, to measure clip
+    # chaining.
+    chain:
+      overlays:
+      - play
+      - video/res_480p
+      - motion_cursor/clip_switch
+      - motion_cursor/alternate_clip_end
+      - motion_cursor/rsi_eval_refpose
+      num_envs: 1
+      length_s: null
+      length_steps: 1500
+      video:
+        enabled: true
+      metric:
+        settle_steps: 0
+      debug_vis:
+        enabled: true
+        robot_ref_ghost: true
+        compliance_force_arrow: true
+      # Render-only: hide the lines of the hand-to-thigh distance sensors
+      # (left_hand_thigh_dist, right_hand_thigh_dist; the yellow lines) in the
+      # eval video; the sensors still measure. Frozen with the recipe so
+      # `run eval --ckpt` reproduces it.
+      viz:
+        scene:
+          show_sensor_lines: false
+    # As `chain`, starting from the default standing pose at frame 0.
+    chain_stand:
+      overlays:
+      - play
+      - video/res_480p
+      - motion_cursor/clip_switch
+      - motion_cursor/alternate_clip_end
+      - motion_cursor/rsi_eval_stand
+      num_envs: 1
+      length_s: null
+      length_steps: 1500
+      video:
+        enabled: true
+      metric:
+        settle_steps: 0
+      debug_vis:
+        enabled: true
+        robot_ref_ghost: true
+        compliance_force_arrow: true
+      # Render-only: hide the lines of the hand-to-thigh distance sensors
+      # (left_hand_thigh_dist, right_hand_thigh_dist; the yellow lines) in the
+      # eval video; the sensors still measure. Frozen with the recipe so
+      # `run eval --ckpt` reproduces it.
+      viz:
+        scene:
+          show_sensor_lines: false
+# Settings of this invocation only, never frozen into a checkpoint (defaults in
+# run.yaml). Only the two a training run needs are set.
+session:
+  launch:
+    gpu_ids: all
+  # Hides the sensor lines in the session video of a `play --config` of this
+  # file (each eval recipe carries its own `viz` block). Not frozen:
+  # `play --ckpt` needs `--override session.viz.scene.show_sensor_lines=false`.
+  viz:
+    scene:
+      show_sensor_lines: false

@@ -1,0 +1,3002 @@
+# Clip manifest multilink_waltz_100ml_100zw_20260830_comz_small_002: 200 entries, written by
+# `just multilink-manifest`. A config reads it as `motion.motions: <this path>`.
+- name: ml_human_fwd_s0
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed0.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed0.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s0
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed0.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed0.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s1
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed1.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed1.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s1
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed1.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed1.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s2
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed2.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed2.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s2
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed2.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed2.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s3
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed3.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed3.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s3
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed3.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed3.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s4
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed4.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed4.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s4
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed4.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed4.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s5
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed5.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed5.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s5
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed5.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed5.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s6
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed6.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed6.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s6
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed6.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed6.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s7
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed7.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed7.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s7
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed7.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed7.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s8
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed8.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed8.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s8
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed8.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed8.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s9
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed9.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed9.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s9
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed9.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed9.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s10
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed10.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed10.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s10
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed10.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed10.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s11
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed11.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed11.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s11
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed11.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed11.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s12
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed12.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed12.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s12
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed12.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed12.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s13
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed13.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed13.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s13
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed13.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed13.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s14
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed14.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed14.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s14
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed14.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed14.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s15
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed15.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed15.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s15
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed15.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed15.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s16
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed16.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed16.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s16
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed16.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed16.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s17
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed17.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed17.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s17
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed17.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed17.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s18
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed18.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed18.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s18
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed18.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed18.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s19
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed19.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed19.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s19
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed19.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed19.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s20
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed20.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed20.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s20
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed20.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed20.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s21
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed21.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed21.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s21
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed21.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed21.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s22
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed22.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed22.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s22
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed22.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed22.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s23
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed23.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed23.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s23
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed23.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed23.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s24
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed24.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed24.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s24
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed24.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed24.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s25
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed25.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed25.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s25
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed25.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed25.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s26
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed26.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed26.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s26
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed26.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed26.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s27
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed27.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed27.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s27
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed27.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed27.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s28
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed28.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed28.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s28
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed28.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed28.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s29
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed29.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed29.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s29
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed29.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed29.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s30
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed30.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed30.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s30
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed30.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed30.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s31
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed31.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed31.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s31
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed31.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed31.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s32
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed32.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed32.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s32
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed32.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed32.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s33
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed33.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed33.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s33
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed33.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed33.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s34
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed34.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed34.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s34
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed34.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed34.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s35
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed35.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed35.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s35
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed35.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed35.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s36
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed36.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed36.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s36
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed36.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed36.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s37
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed37.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed37.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s37
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed37.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed37.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s38
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed38.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed38.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s38
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed38.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed38.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s39
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed39.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed39.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s39
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed39.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed39.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s40
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed40.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed40.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s40
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed40.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed40.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s41
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed41.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed41.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s41
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed41.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed41.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s42
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed42.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed42.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s42
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed42.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed42.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s43
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed43.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed43.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s43
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed43.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed43.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s44
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed44.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed44.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s44
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed44.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed44.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s45
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed45.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed45.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s45
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed45.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed45.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s46
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed46.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed46.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s46
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed46.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed46.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s47
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed47.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed47.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s47
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed47.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed47.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s48
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed48.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed48.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s48
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed48.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed48.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_fwd_s49
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_forcefield_seed49.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_multilink_contact_seed49.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: ml_human_rev_s49
+  robot_motion_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_forcefield_seed49.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_multilink_contact_seed49.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s0
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed0.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s0
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed0.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s1
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed1.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s1
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed1.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s2
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed2.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s2
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed2.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s3
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed3.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s3
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed3.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s4
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed4.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s4
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed4.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s5
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed5.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s5
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed5.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s6
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed6.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s6
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed6.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s7
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed7.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s7
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed7.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s8
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed8.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s8
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed8.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s9
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed9.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s9
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed9.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s10
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed10.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s10
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed10.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s11
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed11.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s11
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed11.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s12
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed12.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s12
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed12.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s13
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed13.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s13
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed13.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s14
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed14.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s14
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed14.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s15
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed15.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s15
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed15.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s16
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed16.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s16
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed16.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s17
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed17.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s17
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed17.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s18
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed18.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s18
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed18.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s19
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed19.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s19
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed19.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s20
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed20.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s20
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed20.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s21
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed21.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s21
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed21.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s22
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed22.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s22
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed22.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s23
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed23.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s23
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed23.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s24
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed24.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s24
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed24.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s25
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed25.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s25
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed25.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s26
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed26.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s26
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed26.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s27
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed27.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s27
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed27.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s28
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed28.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s28
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed28.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s29
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed29.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s29
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed29.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s30
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed30.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s30
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed30.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s31
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed31.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s31
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed31.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s32
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed32.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s32
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed32.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s33
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed33.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s33
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed33.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s34
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed34.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s34
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed34.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s35
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed35.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s35
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed35.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s36
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed36.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s36
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed36.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s37
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed37.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s37
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed37.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s38
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed38.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s38
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed38.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s39
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed39.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s39
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed39.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s40
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed40.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s40
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed40.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s41
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed41.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s41
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed41.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s42
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed42.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s42
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed42.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s43
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed43.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s43
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed43.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s44
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed44.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s44
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed44.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s45
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed45.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s45
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed45.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s46
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed46.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s46
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed46.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s47
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed47.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s47
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed47.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s48
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed48.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s48
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed48.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_fwd_s49
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260224_001_zerowrench_contact_seed49.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260224_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield
+- name: zw_human_rev_s49
+  robot_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  free_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_robot.npz
+  contact_file: data/compliant/rc/20260830_comz_small_002/waltz_20260408_001_zerowrench_contact_seed49.npz
+  human_motion_file: data/reference_motion_edits_g1_g1_waltz/20260408_001_human.npz
+  placement_offset:
+  - -0.5
+  - 0.0
+  - 0.0
+  foot_follow_offset:
+  - -0.5
+  - 0.0
+  weight: 1.0
+  trackable: true
+  amp_group: forcefield

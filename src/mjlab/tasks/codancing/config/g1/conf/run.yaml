@@ -1,0 +1,193 @@
+# The base config every run file composes via `- run` in its defaults list.
+#
+# Hydra assembles the full {env, runner, motion, eval, session} tree, which the
+# build step turns into the environment and runner configurations once. The
+# base is the G1 scene description (`catalog: g1`) plus the named sets below;
+# each run file in this directory (decoupled.yaml, stand.yaml, ...) sets its
+# terms, runner and clip pool inline.
+defaults:
+  - catalog: g1
+  - /action_set: whole_body
+  - body_sets: g1
+  - _self_
+
+# NOTE: the run file sets `experiment_stem`; compose derives
+# `runner.experiment_name` from it.
+
+# Beyond `env` / `runner`, a run tree carries three more root blocks (typed in
+# `config/run_cfg.py`, which these defaults mirror):
+#
+#   motion:   frozen into every checkpoint; the environment depends on it.
+#   eval:     frozen into every checkpoint; the evaluation recipes, so that
+#             `run eval` reproduces each of them from the checkpoint alone.
+#   session:  this invocation only (viewer, policy source, recording, GPUs,
+#             log directories); never frozen, so a checkpoint loads with fresh
+#             session settings and a training-time launch choice cannot leak
+#             into a later play or eval.
+#
+# Predeclaring every leaf means plain CLI overrides work WITHOUT `+`
+# (`--override session.viewer=native`), and overlays merge over them.
+#
+# Value convention:
+#   <value> -- the default (overlays and the CLI may override it).
+#   null    -- optional, off / auto unless you set it.
+#   ???     -- native OmegaConf MISSING: no sensible default, provide it per
+#              run. `compose_run` drops an unset `???` (it does NOT leak the
+#              literal "???"), so it falls back to the dataclass default and
+#              downstream code reports a clear error if truly needed (e.g. a
+#              run with no motion). Mostly filled by the run file.
+
+# --- Motion (frozen into the checkpoint; required; set by the run file) ------
+# Provide `motions` (a clip-manifest YAML; single-clip runs use a one-entry
+# manifest); an unset run fails with a clear "Must provide motion.motions".
+motion:
+  motions: ???                   # clip-manifest YAML (the clip pool)
+
+# --- Evaluation (frozen into the checkpoint; mirrors `run_cfg.EvalCfg`) ------
+# Composed and frozen with every training run, so `run eval` reproduces it.
+eval:
+  # The overlay groups a recipe's `overlays` may name. The eval tree describes
+  # a measurement, so groups that would change the motion, runner or session
+  # are rejected with an explanatory error. Shared across recipes; a run file
+  # or --override may extend it.
+  allowed_overlay_groups: [play, video, motion_cursor]
+  # Named eval recipes, each complete on its own (no cross-recipe merge). A
+  # `default` is required; `run eval --recipe NAME` writes to
+  # eval_sessions/{recipe}/.
+  recipes:
+    default:
+      overlays: [play]             # the overlays composed into this recipe's eval env
+      num_envs: 1
+      length_s: null               # seconds; wins over length_steps when set
+      length_steps: 300            # bounded rollout length == eval-clip length
+      video:                       # the EVAL recorder (enable only; length above)
+        enabled: true
+      # Per-recipe metric recording. The rollout is bounded by length_*; every
+      # eval writes the per-(step, env) rollout table, and its summary numbers
+      # (summary CSV, manifest) are computed offline from it.
+      metric:
+        settle_steps: 0          # the analyzer's settle window for this eval
+      # Per-recipe reference-ghost / frames draw (render-only). null -> INHERIT
+      # session.debug_vis; a block REPLACES it wholesale (no field merge), e.g. a
+      # recipe that forces both ghosts on, or one that sets
+      # `debug_vis: {enabled: false}`. Resolved as `recipe.debug_vis or session`.
+      debug_vis: null
+      # Per-recipe main-scene geom decoration (collision capsules / hidden visual).
+      # null -> INHERIT session.viz; a block REPLACES it. Resolved at eval build as
+      # `recipe.viz or session.viz`, e.g. a recipe that shows collision capsules.
+      viz: null
+
+# --- Session (this invocation only; mirrors `run_cfg.SessionCfg`; never frozen)
+session:
+  # Play: policy + viewer.
+  agent_type: trained            # trained | zero | random
+  viewer: auto                   # auto | native | native-frozen | viser | none
+  # Trained checkpoint for a `play --config` session (a `--ckpt` run fills it
+  # automatically). Unset -> zero-action policy, so this is `???` not `null`.
+  checkpoint_file: ???
+  # Root the play-session folder is created under (timestamped subdir still
+  # made per session). null keeps the default routing (checkpoint run dir for
+  # trained agents, logs/play_sessions for dummy ones); set it to collect a
+  # session inside a caller owned folder.
+  play_sessions_root: null
+  camera_source: fixed           # fixed | live (recorder camera)
+  # G1 train/play recorder ("tape what you watch"); resolution lives in
+  # `env.viewer.width/height`. Independent of the eval recorder above.
+  video:
+    enabled: false
+    length_s: null               # seconds; wins over length_steps when set
+    length_steps: 200            # recorded steps per train/play clip
+    interval_steps: 2000         # train: env steps between clips
+  # Play-mode metric RECORDING (summaries and masking are computed offline by
+  # the analyzer from the rollout table). The metric *suite* is owned by the
+  # command (`env.commands.codancing.metric_*`, set in the run file).
+  metric:
+    enabled: false               # per-(step, env) rollout table beside the clips
+    num_steps: null              # fixed session length (null -> the video window)
+  # Per-invocation debug visualization (reference ghosts / frames). Applied
+  # onto the command at play/eval build time (run_exec.apply_debug_vis); a
+  # default `enabled: false` is a no-op, so the command keeps its frozen
+  # defaults. Drawing a ghost never changes the measured trajectory, so this is
+  # a host-process choice, not a frozen env knob. Set per invocation via
+  # `--override session.debug_vis.*`. The human-ghost
+  # SOURCE derives from partner_mode (auto -> entity for g1, motion otherwise).
+  debug_vis:
+    enabled: false
+    robot_ref_ghost: true          # draw robot reference as translucent ghost
+    robot_ref_coord_frames: false  # reference-vs-current COORD frames (3 arrows)
+    # Anchor-aligned decomposition (BeyondMimic Fig. A(i)): the knob above draws
+    # the raw reference + the live body; the keys below also draw the reference
+    # variants (the code calls them faces) with "the same bodies moved onto an
+    # anchor": the adapted reference moved to the LIVE anchor, the free reference
+    # moved to its own anchor. Under an exact kinematic pin they all coincide.
+    robot_ref_desired_ghost: false
+    robot_ref_desired_coord_frames: false
+    free_ref_desired_ghost: false
+    free_ref_desired_coord_frames: false
+    # Body-name list (write ${body_sets.<name>} in an overlay); empty = the whole
+    # model. A ghost needs every body of the region: a sparse reward set renders
+    # as disconnected fragments.
+    robot_ref_ghost_bodies: []
+    human_ref_ghost: false
+    human_ref_coord_frames: false
+    human_ref_ghost_bodies: []
+    human_source: auto             # auto | entity | motion
+    # SoftMimic compliance viz (no-op without force / on unaugmented clips):
+    # free_ref_ghost, compliance_force_arrow and reanchor, all off by default.
+    # Declared here so they can be set with --override.
+    free_ref_ghost: false          # 2nd ghost: unforced original ref (gap = the yield)
+    # Ghost color / body-subset overrides for this session; null keeps the value
+    # from the env block (env.commands.codancing.*_color); free bodies null =
+    # reuse the adapted reference's list.
+    robot_ref_ghost_color: null
+    free_ref_ghost_color: null
+    human_ref_ghost_color: null
+    free_ref_ghost_bodies: null
+    compliance_force_arrow: false  # applied/desired force arrows + setpoint ball
+    # Named force channels; null = expand from the two booleans
+    # compliance_force_arrow and reanchor.
+    force_channels: null
+    # Per-body style overrides: drawn reference (face) -> body name ->
+    # {ghost_color, coord_axis_colors, coord_axis_alpha}. Only the named bodies
+    # are restyled; the rest keep that reference's defaults. The names are
+    # reference / desired / free / desired_free / current (a typo raises
+    # immediately instead of silently doing nothing).
+    # ghost_color is rgba (carries its own alpha); coord frame colors are rgb
+    # only, with transparency from coord_axis_alpha (the three arrows of one coord
+    # frame share one alpha).
+    body_styles: null
+    # spring separates the spring geometry (thin cylinder) from the force
+    # magnitude (fixed-length arrow).
+    compliance_force_style: arrow   # arrow | spring
+    # Also draw the raw setpoint from before reanchoring (makes the
+    # rising-edge-frozen reanchoring visible).
+    reanchor: false
+  # Main-scene render-only geom decoration (collision capsules / hidden visual),
+  # added to the scene at build time (run_exec.apply_scene_viz). null is a
+  # no-op. Render-only, never frozen.
+  viz:
+    scene:
+      geoms: null
+      body_colors: null          # live-entity body recolors (see SceneVizCfg)
+      show_contacts: false       # global contact arrows (vopt flag, all envs)
+      show_sensor_lines: true    # rangefinder rays in the offscreen recorder
+      show_world_frame: true     # world-origin frame in the offscreen recorder
+  # WHAT a fork loads is runner-owned (`runner.load.fork` in the run file's
+  # runner block declares the module vocabulary; override leaves bare, e.g.
+  # `runner.load.fork.discriminator=false`). This block only carries HOW
+  # strictly state dicts apply.
+  fork:
+    strict: true
+  # Where/how this invocation runs (set with --override session.launch.*).
+  launch:
+    log_root: logs/rsl_rl
+    log_dir_prefix: null         # machine-specific
+    gpu_ids: [0]                 # [ids...] | all | null
+    torchrunx_log_dir: null
+    device: null                 # null -> auto-select
+
+# The runner block: the run file fills it (its `_target_` and every
+# RslRl*RunnerCfg field, including `load`). Declared empty here so plain CLI
+# overrides are validated like `env.*` (e.g. `runner.wandb_project`,
+# `runner.algorithm.learning_rate`; a typo'd field raises at compose).
+runner: {}

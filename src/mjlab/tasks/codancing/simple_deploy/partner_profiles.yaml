@@ -1,0 +1,58 @@
+# Real-partner height profiles for the VICON partner source: who wears the
+# marker sets and the per-body z offsets that follow. The trained partner is a
+# G1 proxy whose bodies differ in height from a real human's worn clusters, so
+# each human object's world z is shifted by the wearer's offset before the
+# pelvis-frame projection: offsets_m[body] = cluster_z_m[object] -
+# proxy_body_z_m[body], keyed by the TRAINED body name (the trunk cluster
+# serves pelvis and torso_link). A wearer whose Tracker objects are not the
+# default human_* set states its own `vicon_objects` (trained body -> object);
+# bodies it omits cannot be deployed for them. `measured: null` = not
+# deployable yet. Add or refresh a wearer with
+#   python -m mjlab.tasks.codancing.simple_deploy measure --profile <name>
+# (stand still in the volume wearing the sets); the file is rewritten from its
+# data, so keep notes in the entries, not in comments.
+proxy_body_z_m:
+  pelvis: 0.744
+  torso_link: 0.788
+  left_knee_link: 0.33
+  right_knee_link: 0.31
+profiles:
+  partner-a:
+    measured: '2026-08-25'
+    note: standing probe
+    vicon_objects:
+      pelvis: human_root
+      torso_link: human_root
+      left_knee_link: human_left_knee
+      right_knee_link: human_right_knee
+    cluster_z_m:
+      human_root: 0.92
+      human_left_knee: 0.43
+      human_right_knee: 0.43
+    offsets_m:
+      pelvis: 0.18
+      torso_link: 0.13
+      left_knee_link: 0.1
+      right_knee_link: 0.12
+  partner-b:
+    measured: '2026-08-25'
+    note: standing probe, 249 frames
+    vicon_objects:
+      pelvis: partner_b_root
+      torso_link: partner_b_root
+      left_knee_link: partner_b_left_knee
+      right_knee_link: partner_b_right_knee
+    cluster_z_m:
+      partner_b_root: 0.738
+      partner_b_left_knee: 0.401
+      partner_b_right_knee: 0.397
+    offsets_m:
+      pelvis: -0.01
+      torso_link: -0.05
+      left_knee_link: 0.07
+      right_knee_link: 0.09
+  partner-c:
+    measured: null
+    note: not measured yet
+    cluster_z_m: {}
+    offsets_m: null

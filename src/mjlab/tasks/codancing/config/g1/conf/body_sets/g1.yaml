@@ -1,0 +1,82 @@
+# @package _global_
+# Named body-name lists, referenced by interpolation and always composed via
+# the run `defaults`. A config references a set by key,
+# e.g. `${body_sets.amp_lower_body_with_torso}`, so each body-name list lives in
+# one place. To try a new body set, add a key here (or define one inline in a
+# config) and reference it via `${body_sets.<name>}`.
+body_sets:
+  # The 14 sparse reference bodies. The name says where it comes from: this
+  # exact selection is what beyondmimic's released dense whole-body tracking
+  # code used, inherited here as a foreign default rather than a considered
+  # choice for this task.
+  beyondmimic_dense_tracked_whole_body:
+    - pelvis
+    - left_hip_roll_link
+    - left_knee_link
+    - left_ankle_roll_link
+    - right_hip_roll_link
+    - right_knee_link
+    - right_ankle_roll_link
+    - torso_link
+    - left_shoulder_roll_link
+    - left_elbow_link
+    - left_wrist_yaw_link
+    - right_shoulder_roll_link
+    - right_elbow_link
+    - right_wrist_yaw_link
+  # Every tracked body, by its role: what a `whole_body` metric group or a
+  # whole-body-scoped read means. It IS the beyondmimic selection above.
+  whole_body: ${body_sets.beyondmimic_dense_tracked_whole_body}
+  # The single-body torso group (the pose-match anchor body): the default
+  # `metric_body_groups: [torso]` resolves through the registry like any
+  # other name.
+  torso:
+    - torso_link
+  upper_body:
+    - torso_link
+    - left_shoulder_roll_link
+    - left_elbow_link
+    - left_wrist_yaw_link
+    - right_shoulder_roll_link
+    - right_elbow_link
+    - right_wrist_yaw_link
+  # `upper_body` minus torso_link (the upper-body tracking anchor -- tracking it
+  # relative to itself is a dead identity term). The released configs track the
+  # arms with this set.
+  upper_body_arms:
+    - left_shoulder_roll_link
+    - left_elbow_link
+    - left_wrist_yaw_link
+    - right_shoulder_roll_link
+    - right_elbow_link
+    - right_wrist_yaw_link
+  lower_body:
+    - pelvis
+    - left_hip_roll_link
+    - left_knee_link
+    - left_ankle_roll_link
+    - right_hip_roll_link
+    - right_knee_link
+    - right_ankle_roll_link
+
+  # The observed-partner selection for the partner obs terms' per-term
+  # `body_names` (the human has no anchor: each term names the bodies it
+  # observes, `body_names: ${body_sets.human_pelvis_knees}`): the trunk marker
+  # plus the knees.
+  human_pelvis_knees:
+    - pelvis
+    - left_knee_link
+    - right_knee_link
+
+  # The AMP observation bodies (robot-only feature bodies). The anchor body
+  # (set by `amp_feature.anchor_body_name` in the run file) is deliberately
+  # ABSENT from this set -- its anchor-relative pose is the constant identity,
+  # wasted discriminator capacity.
+  amp_lower_body_with_torso:
+    - torso_link
+    - left_hip_roll_link
+    - left_knee_link
+    - left_ankle_roll_link
+    - right_hip_roll_link
+    - right_knee_link
+    - right_ankle_roll_link

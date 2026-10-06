@@ -1,0 +1,17 @@
+# @package env.commands.codancing.motion_cursor
+# Eval-side reset, REFERENCE pose at phase 0: every
+# eval episode starts at frame 0 of the clip in the reference pose
+# (start_prob 1.0 = every reset forced to phase 0 in the reference pose,
+# default_prob 0.0 = none from the default standing pose, so no phase is
+# drawn) and exactly on the placed pose (zero spawn ranges; a zero-width range
+# is inactive, the same as an empty one). Appended last in a recipe's overlay
+# list so it wins over the train tree's rsi mix and root_pose_range. The twin
+# rsi_eval_stand starts every episode from the default standing pose instead.
+episode_reset: rsi
+rsi:
+  start_prob: 1.0
+  default_prob: 0.0
+root_pose_range:
+  x: [0.0, 0.0]
+  y: [0.0, 0.0]
+  yaw: [0.0, 0.0]

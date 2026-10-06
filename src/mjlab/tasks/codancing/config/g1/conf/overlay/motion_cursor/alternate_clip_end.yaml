@@ -1,0 +1,13 @@
+# @package _global_
+# Clip-end selection = per-env round robin over the manifest order (the
+# `alternate` mode). On a pool whose entries interleave fwd/rev per seed
+# (the waltz pools) every switch is a direction change, which is what
+# a chaining video or eval wants to show; compose it AFTER
+# motion_cursor/clip_switch. Training keeps `random` (either direction).
+env:
+  commands:
+    codancing:
+      motion_cursor:
+        source:
+          clip_end:
+            clip_selection: alternate

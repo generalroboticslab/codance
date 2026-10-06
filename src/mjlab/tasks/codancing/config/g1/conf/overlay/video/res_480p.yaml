@@ -1,0 +1,9 @@
+# @package _global_
+# Reusable 480p (854x480, 16:9) capture resolution only: resolution is
+# taken from `env.viewer.width/height` (the recorder reads the
+# offscreen renderer's resolution), decoupled from the enable flag and clip
+# length; small enough for fast headless eval clips.
+env:
+  viewer:
+    width: 854
+    height: 480

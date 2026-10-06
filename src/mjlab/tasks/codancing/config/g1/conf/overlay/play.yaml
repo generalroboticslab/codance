@@ -1,0 +1,42 @@
+# @package _global_
+# Default play overlay: infinite episodes, no actor observation noise, the two
+# startup draws the configs train with (base_com, foot_friction) restated in
+# full, and every other randomization term nulled by name.
+#
+# Value form on purpose: the run files state every term inline, and only a
+# value (a restated term, or a null) changes an inline term. A NEW randomization
+# term must be added to the null list here, so that no startup / reset term
+# other than base_com and foot_friction survives in any eval tree.
+env:
+  episode_length_s: 1000000000
+  observations:
+    actor:
+      enable_corruption: false
+  events:
+    # base_com and foot_friction, restated in full.
+    base_com:
+      func: mjlab.envs.mdp.dr.body_ipos
+      mode: startup
+      params:
+        asset_cfg:
+          _target_: mjlab.managers.scene_entity_config.SceneEntityCfg
+          _args_: [robot]
+          body_names: [torso_link]
+        operation: add
+        ranges:
+          0: [-0.025, 0.025]
+          1: [-0.05, 0.05]
+          2: [-0.05, 0.05]
+    foot_friction:
+      func: mjlab.envs.mdp.dr.geom_friction
+      mode: startup
+      params:
+        asset_cfg:
+          _target_: mjlab.managers.scene_entity_config.SceneEntityCfg
+          _args_: [robot]
+          geom_names: "^(left|right)_foot[1-7]_collision$"
+        operation: abs
+        ranges: [0.3, 1.2]
+        shared_random: true
+    # Every other randomization term the run files add.
+    encoder_bias: null

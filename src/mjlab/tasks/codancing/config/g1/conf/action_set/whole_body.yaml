@@ -1,0 +1,13 @@
+# @package env.actions
+# Default action set: one whole-body joint-position term (every actuator).
+# A config group so a run can swap the whole node
+# (for example for a lower/upper-body split) without dict-over-list merge
+# conflicts on `actuator_names`.
+joint_pos:
+  _target_: mjlab.envs.mdp.actions.JointPositionActionCfg
+  entity_name: robot
+  actuator_names: [".*"]
+  scale:
+    _target_: hydra_zen.funcs.get_obj
+    path: mjlab.asset_zoo.robots.G1_ACTION_SCALE
+  use_default_offset: true

@@ -1,0 +1,19 @@
+# @package _global_
+# Mid-episode clip chaining: null the clip-end truncation so the cursor
+# resamples IN-EPISODE, and chain the incoming clip onto the robot where it
+# stands (every reference read is translated so the continuity body continues
+# from the outgoing clip's last frame). Next clip: random over pool weights;
+# compose motion_cursor/alternate_clip_end on top for the strict per-env round
+# robin. The terminations null MUST stay: a run file trained without chaining
+# (decoupled_wo_chaining) sets env.terminations.motion_clip_end, and with it
+# active the truncation preempts the chain.
+env:
+  terminations:
+    motion_clip_end: null
+  commands:
+    codancing:
+      motion_cursor:
+        source:
+          clip_end:
+            clip_selection: random
+        clip_end: chain

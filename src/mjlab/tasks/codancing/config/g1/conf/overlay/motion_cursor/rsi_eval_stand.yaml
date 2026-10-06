@@ -1,0 +1,16 @@
+# @package env.commands.codancing.motion_cursor
+# Eval-side reset, DEFAULT STANDING pose at phase 0: every eval episode starts
+# with the robot standing in its default pose at the placed spot (what
+# `episode_reset: default` writes) and the clip at frame 0, so the policy has
+# to enter the dance from a stand (default_prob 1.0, start_prob 0.0, no phase
+# drawn) and exactly on the placed pose (zero spawn ranges). Appended last in
+# a recipe's overlay list so it wins over the train tree's rsi mix and
+# root_pose_range. The twin rsi_eval_refpose starts in the reference pose.
+episode_reset: rsi
+rsi:
+  start_prob: 0.0
+  default_prob: 1.0
+root_pose_range:
+  x: [0.0, 0.0]
+  y: [0.0, 0.0]
+  yaw: [0.0, 0.0]

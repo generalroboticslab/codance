@@ -1,0 +1,157 @@
+# @package env
+#
+# Solo structural base for the g1 codancing env (the "compose-then-build-once"
+# scaffold). This is the `partner_mode: imagined` skeleton:
+# everything that is always present (scaffold, actions, robot entity, commands,
+# observer-level flags, viewer, sim). The human side is set by
+# `commands.codancing.partner_mode` (none | imagined | g1); term
+# content (obs / rewards / events / terminations / sensors) comes from the run
+# file, which fills the empty sections below.
+#
+# Only Python leaves are importable objects pointed at via get_obj (mdp funcs are
+# wrapped from bare dotted `func` strings by the build step). Term sugar: `func`
+# is a bare dotted path, `noise` a bare {n_min, n_max}.
+_target_: mjlab.tasks.shared.wrapper.manager_based_rl_env.ManagerBasedRlEnvCfgWrapper
+decimation: 4
+episode_length_s: 10.0
+# null -> play/eval default to the runner seed at build; train always sets it.
+# Predeclared so `--override env.seed=N` passes struct mode.
+seed: null
+
+scene:
+  _target_: mjlab.scene.SceneCfg
+  num_envs: 1
+  memory: 100M
+  terrain:
+    _target_: mjlab.terrains.TerrainEntityCfg
+    terrain_type: plane
+  # Scene edit functions: a named, ordered dict of Callable[[MjSpec], None]
+  # entries applied in order at build (`chain_spec_fns`). Empty by default; the
+  # collision visualization is added per session instead (run_exec.apply_scene_viz).
+  spec_fns: {}
+  entities:
+    robot:
+      _target_: mjlab.entity.EntityCfg
+      init_state:
+        _target_: hydra_zen.funcs.get_obj
+        path: mjlab.asset_zoo.robots.unitree_g1.g1_constants.KNEES_BENT_KEYFRAME
+      collisions:
+        - _target_: hydra_zen.funcs.get_obj
+          path: mjlab.asset_zoo.robots.unitree_g1.g1_constants.FULL_COLLISION
+      spec_fn:
+        _target_: hydra_zen.funcs.get_obj
+        path: mjlab.asset_zoo.robots.unitree_g1.g1_constants.get_spec
+      articulation:
+        _target_: hydra_zen.funcs.get_obj
+        path: mjlab.asset_zoo.robots.unitree_g1.g1_constants.G1_ARTICULATION
+
+viewer:
+  _target_: mjlab.viewer.ViewerConfig
+  origin_type:
+    _target_: hydra_zen.funcs.get_obj
+    path: mjlab.viewer.ViewerConfig.OriginType.ASSET_BODY
+  entity_name: robot
+  body_name: torso_link
+  distance: 4.0
+  elevation: -10.0
+  azimuth: 90.0
+
+sim:
+  _target_: mjlab.sim.SimulationCfg
+  nconmax: 1000
+  njmax: 1000
+  # NaN guard on by default (a debugging safety net that dumps sim state on a
+  # detected NaN). Disable with `--override env.sim.nan_guard.enabled=false`.
+  nan_guard:
+    _target_: mjlab.utils.nan_guard.NanGuardCfg
+    enabled: true
+  mujoco:
+    _target_: mjlab.sim.MujocoCfg
+    timestep: 0.005
+    iterations: 10
+    ls_iterations: 20
+    jacobian: sparse
+
+# Observer-level flags + empty term dicts; the run file fills the terms.
+observations:
+  actor:
+    concatenate_terms: true
+    enable_corruption: true
+    terms: {}
+  critic:
+    concatenate_terms: true
+    enable_corruption: false
+    terms: {}
+
+# Term-bearing sections start empty; the run file fills them.
+rewards: {}
+events: {}
+terminations: {}
+curriculum: {}
+# Core-manager analytics sections (MetricsManager / RecorderManager), empty in
+# every config: eval records the codancing command's own metric suite
+# (`commands.codancing.metric_*` -> command.metrics), and the session records
+# the videos.
+metrics: {}
+recorders: {}
+sensors: {}
+
+commands:
+  codancing:
+    _target_: mjlab.tasks.codancing.mdp.commands.CodancingComposedCommandCfg
+    debug_vis: true
+    robot_asset_name: robot
+    human_asset_name: g1_human
+    # Metric comparison pairs over the reference variants (live / served / free); every
+    # pair records under robot_ref/{a}_vs_{b}/... keys. Predeclared so a bare
+    # `--override env.commands.codancing.metric_compare=[[...]]` works.
+    metric_compare: [[served, live]]
+    # Single source of truth for the human side. Base = imagined (human from
+    # the motion file, no scene entity); a run file sets `g1` for a live
+    # partner entity.
+    partner_mode: imagined
+    active_clip_obs_mode: none
+    # The motion cursor: reference SOURCE (the union; per-moment clip
+    # SELECTION lives on the clip source), ONE MODE per resample moment
+    # (episode_reset: default | keyframe | rsi, clip_end: terminate | chain;
+    # a mode that samples a phase writes the reference at that phase), the
+    # `rsi` sampler block, and the episode-reset perturbation
+    # ranges (all zero = byte-identical resets). All scalar leaves -> plain
+    # `--override env.commands.codancing.motion_cursor.*=...` forms pass
+    # struct mode. The clip pool itself arrives via `motion.motions` at
+    # execution time.
+    motion_cursor:
+      _target_: mjlab.tasks.codancing.motion.motion_cursor.MotionCursorCfg
+      source:
+        _target_: mjlab.tasks.codancing.motion.motion_cursor.ClipSourceCfg
+        episode_reset:
+          _target_: mjlab.tasks.codancing.motion.motion_cursor.ClipCursorSampleCfg
+          clip_selection: random
+          pin_clip: null
+        clip_end:
+          _target_: mjlab.tasks.codancing.motion.motion_cursor.ClipCursorSampleCfg
+          clip_selection: random
+          pin_clip: null
+      episode_reset: default
+      clip_end: terminate
+      rsi:
+        _target_: mjlab.tasks.codancing.motion.motion_cursor.RsiCfg
+        start_prob: 0.0
+        sampler: {uniform: 1.0, force_event: 0.0, failure_binned: 0.0}
+        kernel_lambda: 0.8
+        kernel_size: 5
+        ema_alpha: 0.001
+      root_pose_range: {}
+      root_velocity_range: {}
+      joint_position_range: [0.0, 0.0]
+    g1_human_pelvis_body_name: pelvis
+    g1_human_left_hand_body_name: left_wrist_yaw_link
+    g1_human_right_hand_body_name: right_wrist_yaw_link
+    g1_human_left_foot_body_name: left_ankle_roll_link
+    g1_human_right_foot_body_name: right_ankle_roll_link
+    # The whole registry rides on the command so name-keyed consumers
+    # (metric_body_groups, body-scoped reads) resolve through ONE vocabulary
+    # (mdp/body_sets.body_set_indices); a frozen config then snapshots the
+    # registry it ran with.
+    body_sets: ${body_sets}
+    pose_match_anchor_body_name: torso_link
