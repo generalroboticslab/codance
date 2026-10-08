@@ -8,7 +8,7 @@
 
 General Robotics Lab, Duke University
 
-**[Website](https://generalroboticslab.com/CoDance)** / **Video (to be added)** / **[Paper](https://arxiv.org/abs/2610.05324)** / **[PDF](https://arxiv.org/pdf/2610.05324)** / **[Dataset](https://huggingface.co/datasets/GeneralRoboticsLab/CoDance)** / **[Deploy](src/mjlab/tasks/codancing/simple_deploy/README.md)**
+**[Website](https://generalroboticslab.com/CoDance)** / **[Video](https://youtu.be/ufOYmNZvLVU)** / **[Paper](https://arxiv.org/abs/2610.05324)** / **[PDF](https://arxiv.org/pdf/2610.05324)** / **[Dataset](https://huggingface.co/datasets/GeneralRoboticsLab/CoDance)** / **[Deploy](src/mjlab/tasks/codancing/simple_deploy/README.md)**
 
 <img src="assets/overview.png" width="100%" alt="CoDance overview: the data pipeline, training and deployment">
 
